@@ -1,12 +1,20 @@
-import Counter from "../Counter/Counter";
+// HOOKS
+import { useState } from "react";
+import { users } from "../../data/users";
+import CardUser from "../CardUser/CardUser";
 import "./Home.css";
+import Counter from "../Counter/Counter";
 
 function Home() {
+  const [usersData, setUsersData] = useState(users);
+
   return (
-    <div>
-      <h1>Home page</h1>
-      <Counter />
-    </div>
+    <>
+      <Counter initialState={1} />
+      {usersData.map((user, index) => (
+        <CardUser key={index} user={user} />
+      ))}
+    </>
   );
 }
 
