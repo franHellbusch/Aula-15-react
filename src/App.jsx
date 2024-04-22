@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./App.css";
+import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Saludo from "./components/Saludo/Saludo";
+import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
 
 function App() {
   // operadores de condicion
@@ -27,13 +29,16 @@ function App() {
 
   return (
     <>
-      <button onClick={handleChange}>change</button>
-      {mostrarHome && <Home />}
-      {mostrarHome ? <Home /> : <h2>Home esta oculto</h2>}
-      <Saludo nombre='Juan' apellido='Garcia' />
-      <Saludo nombre='Francisco' />
-      <Saludo nombre='Mateo' />
-      <Saludo nombre='Marta' />
+      <Header />
+      <ProductsContainer />
+
+      {/* <button onClick={handleChange}>change</button>
+      {mostrarHome && <Home/>}
+      {mostrarHome ? <Home/> : <h2>Home esta oculto</h2>}
+      <Saludo nombre='Juan' apellido='Garcia'/>
+      <Saludo nombre='Francisco'/>
+      <Saludo nombre='Mateo'/>
+      <Saludo nombre='Marta'/> */}
     </>
   );
 }

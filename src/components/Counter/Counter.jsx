@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Counter.css";
 
 // props
-function Counter() {
+function Counter(props) {
   // useState
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(props.initialState);
+
+  console.log("cambio el estado");
+  useEffect(() => {
+    console.log("entro al effect");
+  }, []);
 
   const sumar = () => {
     setCount(count + 1);
@@ -13,6 +18,11 @@ function Counter() {
   const restar = () => {
     setCount(count - 1);
   };
+
+  // ciclos de vida del componente
+  // 1. montaje componentMount
+  // 2. modificado componentUpdated
+  // 3. desmontar componentUnmount
 
   return (
     <div className='counter'>
